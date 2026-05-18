@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard Sensor Suhu</title>
+</head>
+<body>
+
+    <h1>Dashboard Sensor Suhu</h1>
+
+    
+    <h2>Data Suhu</h2>
+
+    <table border="1" cellpadding="8">
+        <tr>
+            <th>No</th>
+            <th>Timestamp</th>
+            <th>Suhu</th>
+        </tr>
+
+        {% for item in data %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ item.timestamp }}</td>
+            <td>{{ item.suhu }} °C</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    
+</body>
+</html>

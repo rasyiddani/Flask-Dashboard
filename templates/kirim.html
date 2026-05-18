@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kirim data</title>
+</head>
+<body>
+    <h2>Kirim Data Suhu</h2>
+
+    <input type="number" id="suhu" placeholder="Masukkan suhu">
+    <button onclick="kirimData()">Kirim</button>
+
+    <script>
+        function kirimData() {
+            let suhu = document.getElementById("suhu").value;
+
+            fetch("/api/suhu", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    suhu: suhu
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+                location.reload();
+            });
+        }
+    </script>
+</body>
+</html>
